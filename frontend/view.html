@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Patient Form</title>
+</head>
+<body>
+  <h2>Patient Medical Form</h2>
+  <p><b>Patient ID:</b> <span id="pid"></span></p>
+  <p><b>Name:</b> <span id="name"></span></p>
+  <p><b>Age:</b> <span id="age"></span></p>
+  <p><b>Gender:</b> <span id="gender"></span></p>
+  <p><b>Address:</b> <span id="address"></span></p>
+  <p><b>Mobile:</b> <span id="mobile"></span></p>
+ 
+  <button onclick="window.print()">Print</button>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const id = params.get("id");
+
+fetch("http://localhost:3000/api/patients/" + id)
+  .then(res => res.json())
+  .then(p => {
+    document.getElementById("pid").innerText = p.id;
+    document.getElementById("name").innerText = p.name;
+    document.getElementById("age").innerText = p.age;
+    document.getElementById("gender").innerText = p.gender;
+    document.getElementById("address").innerText = p.address;
+    document.getElementById("mobile").innerText = p.mobile;
+  });
+</script>
+</body>
+</html>
