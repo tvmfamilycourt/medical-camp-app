@@ -1,24 +1,50 @@
 <!DOCTYPE html>
-<html>
-    <input id="campName" placeholder="Camp Name (e.g. Medical Camp 2026)"><br><br>
-<input id="campDate" type="date"><br><br>
+<html lang="en">
 <head>
-  <title>Patient Registration</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Medical Camp Registration</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h2>Add Patient</h2>
-  <input id="name" placeholder="Name"><br><br>
-  <input id="age" type="number" placeholder="Age"><br><br>
-  <select id="gender">
-    <option>Male</option>
-    <option>Female</option>
-  </select><br><br>
-  <textarea id="address" placeholder="Address"></textarea><br><br>
-  <input id="mobile" placeholder="Mobile"><br><br>
-  <button onclick="save()">Save</button>
+  <div class="container">
+    <div class="card">
+      <h1>Medical Camp Registration</h1>
 
-  <h2>Patient List</h2>
-  <ul id="list"></ul>
+      <div class="camp-info">
+        <p><strong>Camp Name:</strong> <span id="campNameText"></span></p>
+        <p><strong>Camp Date:</strong> <span id="campDateText"></span></p>
+      </div>
+
+      <div class="form">
+        <label>Name</label>
+        <input id="name" placeholder="Enter full name" />
+
+        <label>Age</label>
+        <input id="age" type="number" placeholder="Enter age" />
+
+        <label>Gender</label>
+        <select id="gender">
+          <option value="">Select gender</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
+
+        <label>Address</label>
+        <textarea id="address" placeholder="Enter full address"></textarea>
+
+        <label>Mobile</label>
+        <input id="mobile" placeholder="Enter mobile number" />
+
+        <button onclick="save()">Save</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Patient List</h2>
+      <ul id="patientList" class="list"></ul>
+    </div>
+  </div>
 
   <script src="app.js"></script>
 </body>
