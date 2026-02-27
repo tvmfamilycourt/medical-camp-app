@@ -1,33 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Patient Form</title>
+  <title>Patient Sheet</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h2>Patient Medical Form</h2>
-  <p><b>Patient ID:</b> <span id="pid"></span></p>
-  <p><b>Name:</b> <span id="name"></span></p>
-  <p><b>Age:</b> <span id="age"></span></p>
-  <p><b>Gender:</b> <span id="gender"></span></p>
-  <p><b>Address:</b> <span id="address"></span></p>
-  <p><b>Mobile:</b> <span id="mobile"></span></p>
- 
-  <button onclick="window.print()">Print</button>
+  <div class="container" id="sheet">
+    <h2>Patient Details</h2>
+    <p><b>ID:</b> <span id="pid"></span></p>
+    <p><b>Name:</b> <span id="pname"></span></p>
+    <p><b>Age:</b> <span id="page"></span></p>
+    <p><b>Gender:</b> <span id="pgender"></span></p>
+    <p><b>Address:</b> <span id="paddress"></span></p>
+    <p><b>Mobile:</b> <span id="pmobile"></span></p>
+    <p><b>Camp:</b> <span id="pcamp"></span></p>
+    <p><b>Date:</b> <span id="pdate"></span></p>
 
-<script>
-const params = new URLSearchParams(window.location.search);
-const id = params.get("id");
+    <button onclick="window.print()">Print Sheet 🖨️</button>
+  </div>
 
-fetch("http://localhost:3000/api/patients/" + id)
-  .then(res => res.json())
-  .then(p => {
-    document.getElementById("pid").innerText = p.id;
-    document.getElementById("name").innerText = p.name;
-    document.getElementById("age").innerText = p.age;
-    document.getElementById("gender").innerText = p.gender;
-    document.getElementById("address").innerText = p.address;
-    document.getElementById("mobile").innerText = p.mobile;
-  });
-</script>
+  <script>
+    const API = "https://medical-camp-app-2uin.onrender.com/api/patients";
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+
+    async function loadPatient() {
+      const res = await fetch(API + "/" + id);
+      const p = await res.json();
+
+      document.getElementById("pid").innerText = p.id;
+      document.getElementById("pname").innerText = p.name;
+      document.getElementById("page").innerText = p.age;
+      document.getElementById("pgender").innerText = p.gender;
+      document.getElementById("paddress").innerText = p.address;
+      document.getElementById("pmobile").innerText = p.mobile;
+      document.getElementById("pcamp").innerText = p.campName;
+      document.getElementById("pdate").innerText = p.campDate;
+    }
+
+    loadPatient();
+  </script>
 </body>
 </html>

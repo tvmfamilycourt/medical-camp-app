@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Patient List</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>Patient List</h2>
+    <ul id="list"></ul>
+  </div>
+
+  <script>
+    const API = "https://medical-camp-app-2uin.onrender.com/api/patients";
+
+    async function loadPatients() {
+      const res = await fetch(API);
+      const patients = await res.json();
+
+      const list = document.getElementById("list");
+      list.innerHTML = "";
+
+      patients.forEach(p => {
+        list.innerHTML += `
+          <li>
+            <a href="view.html?id=${p.id}">
+              ${p.name} - ${p.id}
+            </a>
+          </li>
+        `;
+      });
+    }
+
+    loadPatients();
+  </script>
+</body>
+</html>
