@@ -8,50 +8,39 @@
 <body>
 
   <!-- Header -->
-  <header class="header">
-    <img src="dph.png" alt="DPH Logo" class="logo" />
-    <img src="tn-govt.png" alt="Tamil Nadu Govt Logo" class="logo center-logo" />
-    <img src="dph100.png" alt="100 Years DPH Logo" class="logo" />
-  </header>
+  <div class="header">
+    <img src="images/dph-logo.png" class="logo left" />
+    <img src="images/tn-logo.png" class="logo center" />
+    <img src="images/dph-100.png" class="logo right" />
+  </div>
 
   <div class="container">
+    <h2>REGISTRATION</h2>
 
-    <div class="card">
-      <h2>REGISTRATION</h2>
-
-      <div class="camp-info">
-        <p><strong>Camp Name:</strong> <span id="campNameText">Medical Camp 2026</span></p>
-        <p><strong>Camp Date:</strong> <span id="campDateText">07-03-2026</span></p>
-      </div>
-
-      <label>Name</label>
-      <input id="name" placeholder="Enter full name" />
-
-      <label>Age</label>
-      <input id="age" type="number" placeholder="Enter age" />
-
-      <label>Gender</label>
-      <select id="gender">
-        <option value="">Select gender</option>
-        <option>Male</option>
-        <option>Female</option>
-        <option>Transgender</option>
-      </select>
-
-      <label>Address</label>
-      <textarea id="address" placeholder="Enter full address"></textarea>
-
-      <label>Mobile</label>
-      <input id="mobile" placeholder="Enter mobile number" />
-
-      <button onclick="save()">Save</button>
+    <div class="camp-info">
+      <p><b>Camp Name:</b> Medical Camp 2026</p>
+      <p><b>Camp Date:</b> 07.03.2026</p>
     </div>
 
-    <div class="card">
-      <h2>Patient List</h2>
-      <ul id="list"></ul>
-    </div>
+    <input id="name" placeholder="Enter full name" />
+    <input id="age" placeholder="Enter age" type="number" />
 
+    <select id="gender">
+      <option value="">Select gender</option>
+      <option>Male</option>
+      <option>Female</option>
+      <option>Other</option>
+    </select>
+
+    <textarea id="address" placeholder="Enter full address"></textarea>
+    <input id="mobile" placeholder="Enter mobile number" />
+
+    <button onclick="save()">Save</button>
+  </div>
+
+  <div class="container">
+    <h3>Patient List</h3>
+    <ul id="list"></ul>
   </div>
 
   <script src="app.js"></script>
