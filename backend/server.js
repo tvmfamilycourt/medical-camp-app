@@ -15,24 +15,33 @@ app.post("/api/patients", (req, res) => {
   counter++;
 
   const patient = {
-    id,
-    campName: req.body.campName,
-    campDate: req.body.campDate,
-    name: req.body.name,
-    age: req.body.age,
-    gender: req.body.gender,
-    address: req.body.address,
-    mobile: req.body.mobile,
-    createdAt: new Date()
-  };
-
+  id,
+  name: req.body.name,
+  age: req.body.age,
+  gender: req.body.gender,
+  address: req.body.address,
+  mobile: req.body.mobile,
+  campName: req.body.campName,
+  campDate: req.body.campDate,
+};
   patients.push(patient);
   res.json(patient);
 });
 
 // Get all patients
-app.get("/api/patients", (req, res) => {
-  res.json(patients);
+app.get("/api/patients/:id", (req, res) => {
+  const patient = patients.find(p => p.id === req.params.id);
+
+  if (!patient) {
+    return res.status(404).json({ error: "Patient not found" });
+  }
+
+  res.json(patient);
+});
+
+app.get("/api/patients/:id", (req, res) => {
+  const patient = patients.find(p => p.id === req.params.id);
+  res.json(patient);
 });
 
 // Root route (so browser doesn't say Cannot GET /)
