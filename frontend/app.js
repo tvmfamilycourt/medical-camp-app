@@ -1,18 +1,15 @@
-const API = "http://localhost:3000/api/patients";
-app.get("/", (req, res) => {
-  res.send("Backend is running 👍");
-});
+const API = "https://medical-camp-app-2uin.onrender.com/api/patients";
 
 async function save() {
   const data = {
-  campName: campName.value,
-  campDate: campDate.value,
-  name: name.value,
-  age: age.value,
-  gender: gender.value,
-  address: address.value,
-  mobile: mobile.value
-};
+    campName: "Medical Camp 2026",
+    campDate: "07.03.2026",
+    name: name.value,
+    age: age.value,
+    gender: gender.value,
+    address: address.value,
+    mobile: mobile.value
+  };
 
   await fetch(API, {
     method: "POST",
@@ -26,9 +23,10 @@ async function save() {
 async function loadPatients() {
   const res = await fetch(API);
   const patients = await res.json();
+
   list.innerHTML = "";
   patients.forEach(p => {
-    list.innerHTML += `<li><a href="view.html?id=${p.id}">${p.name}</a></li>`;
+    list.innerHTML += `<li>${p.name} - ${p.mobile}</li>`;
   });
 }
 
