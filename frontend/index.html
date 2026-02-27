@@ -2,49 +2,56 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Medical Camp Registration</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+  <!-- Header -->
+  <header class="header">
+    <img src="dph.png" alt="DPH Logo" class="logo" />
+    <img src="tn-govt.png" alt="Tamil Nadu Govt Logo" class="logo center-logo" />
+    <img src="dph100.png" alt="100 Years DPH Logo" class="logo" />
+  </header>
+
   <div class="container">
+
     <div class="card">
-      <h1>REGISTRATION</h1>
+      <h2>REGISTRATION</h2>
 
       <div class="camp-info">
-        <p><strong>Camp Name:</strong> <span id="campNameText"></span></p>
-        <p><strong>Camp Date:</strong> <span id="campDateText"></span></p>
+        <p><strong>Camp Name:</strong> <span id="campNameText">Medical Camp 2026</span></p>
+        <p><strong>Camp Date:</strong> <span id="campDateText">07-03-2026</span></p>
       </div>
 
-      <div class="form">
-        <label>Name</label>
-        <input id="name" placeholder="Enter full name" />
+      <label>Name</label>
+      <input id="name" placeholder="Enter full name" />
 
-        <label>Age</label>
-        <input id="age" type="number" placeholder="Enter age" />
+      <label>Age</label>
+      <input id="age" type="number" placeholder="Enter age" />
 
-        <label>Gender</label>
-        <select id="gender">
-          <option value="">Select gender</option>
-          <option value="Male">Male</option>
-          <option value="Female">Female</option>
-          <option value="Female">Transgender</option>
-        </select>
+      <label>Gender</label>
+      <select id="gender">
+        <option value="">Select gender</option>
+        <option>Male</option>
+        <option>Female</option>
+        <option>Transgender</option>
+      </select>
 
-        <label>Address</label>
-        <textarea id="address" placeholder="Enter full address"></textarea>
+      <label>Address</label>
+      <textarea id="address" placeholder="Enter full address"></textarea>
 
-        <label>Mobile</label>
-        <input id="mobile" placeholder="Enter mobile number" />
+      <label>Mobile</label>
+      <input id="mobile" placeholder="Enter mobile number" />
 
-        <button onclick="save()">Save</button>
-      </div>
+      <button onclick="save()">Save</button>
     </div>
 
     <div class="card">
       <h2>Patient List</h2>
-      <ul id="patientList" class="list"></ul>
+      <ul id="list"></ul>
     </div>
+
   </div>
 
   <script src="app.js"></script>
