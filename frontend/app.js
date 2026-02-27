@@ -1,4 +1,4 @@
-const API = "https://YOUR-RENDER-BACKEND-URL/api/patients";
+const API = "https://medical-camp-backend.onrender.com/api/patients";
 
 async function save() {
   const name = document.getElementById("name").value.trim();
